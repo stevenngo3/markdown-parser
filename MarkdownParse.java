@@ -29,12 +29,7 @@ public class MarkdownParse {
             int closeParen = markdown.indexOf(")", openParen);
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
-            if (!markdown.substring(currentIndex,markdown.length()).contains("(")) {
-                return toReturn;
-            }
-            else if (!markdown.substring(currentIndex,markdown.length()).contains("[")) {
-                return toReturn;
-            }
+            
             System.out.println(currentIndex);
             }
 
