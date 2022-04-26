@@ -22,6 +22,12 @@ public class MarkdownParse {
             //if(!markdown.contains("(") || !markdown.contains(")")) {
                 //break;
             //}
+            if (!markdown.substring(currentIndex,markdown.length()).contains("(")) {
+                return toReturn;
+            }
+            else if (!markdown.substring(currentIndex,markdown.length()).contains("[")) {
+                return toReturn;
+            }
             if ((markdown.contains("[") || markdown.contains("]")) && (markdown.contains("(") || markdown.contains(")"))) {
             int openBracket = markdown.indexOf("[", currentIndex);
             int closeBracket = markdown.indexOf("]", openBracket);
@@ -29,12 +35,6 @@ public class MarkdownParse {
             int closeParen = markdown.indexOf(")", openParen);
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
-            if (!markdown.substring(currentIndex,markdown.length()).contains("(")) {
-                return toReturn;
-            }
-            else if (!markdown.substring(currentIndex,markdown.length()).contains("[")) {
-                return toReturn;
-            }
             System.out.println(currentIndex);
             }
 
