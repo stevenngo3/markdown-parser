@@ -21,19 +21,19 @@ public class MarkdownParseOriginal {
             //if(!markdown.contains("(") || !markdown.contains(")")) {
             //    break;
             //}
-            //if ((markdown.contains("[") || markdown.contains("]")) && (markdown.contains("(") || markdown.contains(")"))) {
+            if ((markdown.contains("[") || markdown.contains("]")) && (markdown.contains("(") || markdown.contains(")"))) {
             int openBracket = markdown.indexOf("[", currentIndex);
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
-            //if (!markdown.substring(currentIndex,markdown.length()).contains("(")) {
-                //return toReturn;
-            //} 
-            //else if (!markdown.substring(currentIndex,markdown.length()).contains("[")) {
-                //return toReturn;
-            //} 
+            if (!markdown.substring(currentIndex,markdown.length()).contains("(")) {
+                return toReturn;
+            } 
+            else if (!markdown.substring(currentIndex,markdown.length()).contains("[")) {
+                return toReturn;
+            } 
         }
     }
 
