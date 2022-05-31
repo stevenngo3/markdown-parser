@@ -32,3 +32,4 @@ public class MarkdownParseTest {
     
         assertEquals(expected, links);
     }
+}
